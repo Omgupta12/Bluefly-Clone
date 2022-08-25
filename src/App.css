@@ -1,5 +1,13 @@
+/* body{
+  font-family: Tiemann ,serif;
+} */
 .App {
   text-align: center;
+  /* font-family: Tiemann,serif; */
+    font-weight: 400;
+    letter-spacing: 0em;
+    line-height: 1;
+    text-transform: uppercase;
 }
 
 .App-logo {
