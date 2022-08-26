@@ -35,7 +35,7 @@ export default function Navbar() {
   return (
 
  
-     <Box className={styles.Navbar}>
+     <Box className={styles.Navbar} border='1px solid red'>
      
       <Flex >
         <Image  style={{ display: "block", marginLeft: "auto", marginRight: "auto",width:"200px",height:"30px",marginTop:"18px" }}
@@ -292,7 +292,7 @@ const NAV_ITEMS: Array<NavItem> =
     ],
   },
   {
-    label: 'CLOTHING',
+    label: 'SHOES',
     children: 
     [
       { 
@@ -330,7 +330,7 @@ const NAV_ITEMS: Array<NavItem> =
     ],
   },
   {
-    label: 'CLOTHING',
+    label: 'HANDBAGS & ACCESSORIES',
     children: 
     [
       { 
@@ -368,7 +368,7 @@ const NAV_ITEMS: Array<NavItem> =
     ],
   },
   {
-    label: 'CLOTHING',
+    label: 'DESIGNERS',
     children: 
     [
       { 
@@ -406,7 +406,7 @@ const NAV_ITEMS: Array<NavItem> =
     ],
   },
   {
-    label: 'CLOTHING',
+    label: 'SUNGLASSES',
     children: 
     [
       { 
@@ -444,7 +444,7 @@ const NAV_ITEMS: Array<NavItem> =
     ],
   },
   {
-    label: 'CLOTHING',
+    label: 'JEWELRY & WATCHES',
     children: 
     [
       { 
@@ -482,7 +482,7 @@ const NAV_ITEMS: Array<NavItem> =
     ],
   },
   {
-    label: 'CLOTHING',
+    label: 'UNDER $ 50',
     children: 
     [
       { 
@@ -519,7 +519,7 @@ const NAV_ITEMS: Array<NavItem> =
       },
     ],
   },{
-    label: 'CLOTHING',
+    label: 'BEAUTY',
     children: 
     [
       { 
@@ -556,7 +556,7 @@ const NAV_ITEMS: Array<NavItem> =
       },
     ],
   },{
-    label: 'CLOTHING',
+    label: 'CLEARANCE',
     children: 
     [
       { 
