@@ -1,54 +1,513 @@
-import { Container, SimpleGrid ,Image, Box} from '@chakra-ui/react'
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useState, useEffect } from "react";
+import React from "react";
+import axios from "axios";
+import "./Products.css";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  Box,
+  Button,
+  SimpleGrid,
+  Checkbox,
+  Select,
+  Image,
+  Container,Text, Stack
+} from "@chakra-ui/react";
+
+import Pagination from "../Pagination/Pagination";
+import { Link } from "react-router-dom";
+import ProductCard from "./ProductCard";
 
 const Products = () => {
-  const [products, setProducts] = useState([])
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pro, setpro] = useState([]);
+  const [results, setResults] = useState(0);
+  
+  const totalPosts = pro.length;
+  const postPerPage = 6;
+
+  // const indexOfLastPost = currentPage * postPerPage;
+  // const indexOfFirstPost = indexOfLastPost - postPerPage;
+  // const products = pro.slice(indexOfFirstPost, indexOfLastPost);
+  
+  // //catagory checkbox state
+  // let [priceState1, setPriceState1] = useState(false);
+  // let [priceState2, setPriceState2] = useState(false);
+  // let [priceState3, setPriceState3] = useState(false);
+  // let [priceState4, setPriceState4] = useState(false);
+
+  // let [priceState5, setPriceState5] = useState(false);
+  // let [priceState6, setPriceState6] = useState(false);
+  // let [priceState7, setPriceState7] = useState(false);
+  // let [priceState8, setPriceState8] = useState(false);
+  // let [priceState9, setPriceState9] = useState(false);
+  // let [priceState10, setPriceState10] = useState(false);
+  // let [priceState11, setPriceState11] = useState(false);
+
+  // let [priceState12, setPriceState12] = useState(false);
+  // let [priceState13, setPriceState13] = useState(false);
+  // let [priceState14, setPriceState14] = useState(false);
+  // let [priceState15, setPriceState15] = useState(false);
+
+  const getData = () => {
+    axios.get("http://localhost:8080/products").then((res) => {
+      setpro(res.data);
+      setResults(res.data.length);
+    });
+  };
 
   useEffect(() => {
-    axios.get("https://bluefly-api.herokuapp.com/product").then((res) => {
-      console.log(res.data)
-      setProducts(res.data)
-    })
-  }, [])
+    getData();
+  },[]);
+
+ 
+
+  // ///////////////// SORTING /////////////
+  // const sorting = (x) => {
+  //   if (x.target.value === "PRICEHL") {
+  //     setpro((prev) => [
+  //       ...prev.sort((a, b) => b.discounted_price - a.discounted_price),
+  //     ]);
+  //   } else if (x.target.value === "PRICELH") {
+  //     setpro((prev) => [
+  //       ...prev.sort((a, b) => a.discounted_price - b.discounted_price),
+  //     ]);
+  //   } else if (x.target.value === "TITLE-A-Z") {
+  //     setpro((prev) => [...prev.sort((a, b) => (a.title > b.title ? 1 : -1))]);
+  //   } else if (x.target.value === "TITLE-Z-A") {
+  //     setpro((prev) => [...prev.sort((a, b) => (b.title > a.title ? 1 : -1))]);
+  //   } else {
+  //     setpro(pro);
+  //   }
+  //   console.log(pro, "filt");
+  // };
+
+  // /////////////filter//////////////////
+
+  // const catagSort = (x) => {
+  //   if (x == "watch") {
+  //     setPriceState1(true);
+  //     setpro(pro.filter((a) => a.type == "watch"));
+  //     setResults(pro.filter((a) => a.type == "watch").length);
+  //     console.log(pro, "w");
+  //   } else if (x == "ring") {
+  //     setPriceState2(true);
+  //     setpro(pro.filter((a) => a.type == "ring"));
+  //     setResults(pro.filter((a) => a.type == "ring").length);
+  //     console.log(pro, "ring");
+  //   } else if (x === "earrings") {
+  //     setPriceState3(!11);
+  //     setpro(pro.filter((a) => a.type == "earrings"));
+  //     setResults(pro.filter((a) => a.type == "earrings").length);
+  //   } else {
+  //     setPriceState4(!priceState4);
+  //     setpro(pro.filter((a) => a.type == "necklace"));
+  //     setResults(pro.filter((a) => a.type == "necklace").length);
+  //   }
+  // };
+
+  // /////////////BRAND//////////////////
+
+  // const brandSort = (x) => {
+  //   if (x == "JEWELRY AFFAIRS") {
+  //     setPriceState6(true);
+  //     setpro(pro.filter((a) => a.owner == "JEWELRY AFFAIRS"));
+  //     setResults(
+  //       pro.filter((a) => a.owner == "JEWELRY AFFAIRS").length
+  //     );
+  //   } else if (x == "VERSACE") {
+  //     setPriceState7(!priceState7);
+  //     setpro(pro.filter((a) => a.owner == "VERSACE"));
+  //     setResults(pro.filter((a) => a.owner == "VERSACE").length);
+  //   } else if (x == "CARTIER") {
+  //     setPriceState8(!priceState8);
+  //     setpro(pro.filter((a) => a.owner == "CARTIER"));
+  //     setResults(pro.filter((a) => a.owner == "CARTIER").length);
+  //   } else if (x == "SALVATORE FERRAGAMO") {
+  //     setPriceState9(!priceState9);
+  //     setpro(pro.filter((a) => a.owner == "SALVATORE FERRAGAMO"));
+  //     setResults(
+  //       pro.filter((a) => a.owner == "SALVATORE FERRAGAMO").length
+  //     );
+  //   } else if (x == "ROLEX") {
+  //     setPriceState5(!priceState5);
+  //     setpro(pro.filter((a) => a.owner == "ROLEX"));
+  //     setResults(pro.filter((a) => a.owner == "ROLEX").length);
+  //   } else if (x == "PIERRE CARDIN") {
+  //     setPriceState10(!priceState10);
+  //     setpro(pro.filter((a) => a.owner == "PIERRE CARDIN"));
+  //     setResults(pro.filter((a) => a.owner == "PIERRE CARDIN").length);
+  //   } else if (x == "PALMBEACH JEWELRY") {
+  //     setPriceState11(!priceState11);
+  //     setpro(pro.filter((a) => a.owner == "PALMBEACH JEWELRY"));
+  //     setResults(
+  //       pro.filter((a) => a.owner == "PALMBEACH JEWELRY").length
+  //     );
+  //   }
+  //   // else {
+  //   //   setPriceState4(!priceState4);
+  //   //   setpro(pro.filter((a) => a.type == "neck"));
+  //   //   setResults(pro.filter((a) => a.type == "neck").length);
+  //   // }
+  // };
+
+  // /////////PRICE////////
+  // const priceSort = (x) => {
+  //   if (x == "99") {
+  //     setPriceState12(!priceState12);
+  //     setpro(pro.filter((a) => a.discounted_price <= 99));
+  //     setResults(pro.filter((a) => a.discounted_price <= 99).length);
+  //   }
+  //    else if (x == "999") {
+  //     setPriceState13(!priceState13);
+  //     setpro(
+  //       pro.filter(
+  //         (a) => a.discounted_price > 99 && a.discounted_price <= 999
+  //       )
+  //     );
+  //     setResults(
+  //       pro.filter(
+  //         (a) => a.discounted_price > 99 && a.discounted_price <= 999
+  //       ).length
+  //     );
+  //   } else if (x == "1999") {
+  //     setPriceState14(!priceState14);
+  //     setpro(
+  //       pro.filter(
+  //         (a) => a.discounted_price > 999 && a.discounted_price <= 1999
+  //       )
+  //     );
+  //     setResults(
+  //       pro.filter(
+  //         (a) => a.discounted_price > 999 && a.discounted_price <= 1999
+  //       ).length
+  //     );
+  //   } else {
+  //     setPriceState15(!priceState15);
+  //     setpro(pro.filter((a) => a.discounted_price > 2000));
+  //     setResults(pro.filter((a) => a.discounted_price > 2000).length);
+  //   }
+  // };
+
+  // const products = storedProducts.map((pro) => <ProductCard key={pro.id} />);
+
+  const [sortType, setSortType] = useState('albums');
+
+  useEffect(() => {
+    const sortArray = type => {
+      const types = {
+       title: 'title',
+        title: 'title',
+        price: 'price',
+        price: 'price',
+      };
+      const sortProperty = types[type];
+      const sorted = [...pro].sort((a, b) => b[sortProperty] - a[sortProperty]);
+      console.log(sorted)
+      setpro(sorted);
+    };
+ 
+    sortArray(sortType);
+  }, [sortType]); 
+
+
+  if (pro.length === 0) return null;
+
   return (
-    <>
-      <SimpleGrid>
-        {products.map((el) => (
-          <Container key={el._id}>
-            <Box >
-            <Image src={el.img1}/>
-            </Box>
+    <div className="mainbody" style={{ marginTop: "160px" }}>
+      <div>
+        <h1 style={{ fontSize: "40px" }}>Women's Jewelry & Watches</h1>
 
-            <Image src={el.img1}/>
+        <div className="sec">
+          <div>
+            <h3>{`Showing ${results} results for "Women's Bracelets"`}</h3>
+          </div>
 
-          </Container>
-        ))}
+          {/* -------------------------sorting ---------------------*/}
+          <div className="sorting">
+            <Select width="200px"  onChange={(e) => setSortType(e.target.value)}>
+              <option value="BESTSELLING">BESTSELLING</option>
+              <option value="title">TITLE A-Z</option>
+              <option value="title">TITLE Z-A</option>
+              <option value="price">PRICE LOW TO HIGH</option>
+              <option value="price">PRICE HIGH To LOW</option>
+            </Select>
+          </div>
 
-      </SimpleGrid>
+        </div>
+        {/* -------------------------filter ---------------------*/}
+        {/* <div className="splitmainpage"> */}
+          {/* <div className="filter">
+            <div  className="az"> */}
+              {/* // filter accouring to brand */}
+              {/* <Accordion defaultIndex={[0]} allowMultiple> */}
+                {/* // filter accouring to BESTSELLING */}
+                {/* <AccordionItem> */}
+                  {/* <Button
+                    colorScheme="teal"
+                    variant="ghost"
+                    onClick={() => {
+                      setpro(pro);
+                      setResults(pro.length);
+                      setPriceState1(false);
+                      setPriceState2(false);
+                      setPriceState3(false);
+                      setPriceState4(false);
 
-    </>
-  )
-}
+                      setPriceState5(false);
+                      setPriceState6(false);
+                      setPriceState7(false);
+                      setPriceState8(false);
+                      setPriceState9(false);
+                      setPriceState10(false);
+                      setPriceState11(false);
 
-export default Products
+                      setPriceState12(false);
+                      setPriceState13(false);
+                      setPriceState14(false);
+                      setPriceState15(false);
+                    }} */}
+                  {/* > */}
+                    {/* Reset Filters
+                  </Button> */}
+                  {/* -------------------------filter-catagory ---------------------*/}
+                  {/* <h2>
+                    <AccordionButton>
+                      <Box flex="1" textAlign="left">
+                        CATEGORY
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4} textAlign="left">
+                    <Checkbox
+                      value="watch"
+                      checked={priceState1}
+                      onChange={() => {
+                        catagSort("watch");
+                      }}
+                    >
+                      Watches
+                    </Checkbox>
+                    <br />
+                    <Checkbox
+                      value="ring"
+                      checked={priceState2}
+                      onChange={() => {
+                        catagSort("ring");
+                      }}
+                    >
+                      Ring
+                    </Checkbox>
+                    <br />
+                    <Checkbox
+                      value="earrings"
+                      checked={priceState3}
+                      onChange={() => {
+                        catagSort("earrings");
+                      }}
+                    >
+                      Earrings
+                    </Checkbox>
+                    <br></br>
+                    <Checkbox
+                      value="necklace"
+                      checked={priceState3}
+                      onChange={() => {
+                        catagSort("necklace");
+                      }}
+                    >
+                      Necklace
+                    </Checkbox>
+                  </AccordionPanel>
+                </AccordionItem> */}
+                {/* -------------------------filter-brand ---------------------*/}
+                {/* <AccordionItem>
+                  <h2>
+                    <AccordionButton>
+                      <Box flex="1" textAlign="left">
+                        BRAND
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4} textAlign="left">
+                    <Checkbox
+                      value="ROLEX"
+                      checked={priceState5}
+                      onChange={() => {
+                        brandSort("ROLEX");
+                      }}
+                    >
+                      ROLEX
+                    </Checkbox>
+                    <br />
+                    <Checkbox
+                      value="JEWELRY AFFAIRS"
+                      checked={priceState6}
+                      onChange={() => {
+                        brandSort("ROLEX");
+                      }}
+                    >
+                      JEWELRY AFFAIRS
+                    </Checkbox>
+                    <br />
+                    <Checkbox
+                      value="VERSACE"
+                      checked={priceState7}
+                      onChange={() => {
+                        brandSort("VERSACE");
+                      }}
+                    >
+                      VERSACE
+                    </Checkbox>
+                    <br />
+                    <Checkbox
+                      value="CARTIER"
+                      checked={priceState8}
+                      onChange={() => {
+                        brandSort("CARTIER");
+                      }}
+                    >
+                      CARTIER
+                    </Checkbox>
+                    <br />
+                    <Checkbox
+                      value="SALVATORE FERRAGAMO"
+                      checked={priceState9}
+                      onChange={() => {
+                        brandSort("SALVATORE FERRAGAMO");
+                      }}
+                    >
+                      SALVATORE FERRAGAMO
+                    </Checkbox>
+                    <br />
+                    <Checkbox
+                      value="PIERRE CARDIN"
+                      checked={priceState10}
+                      onChange={() => {
+                        brandSort("PIERRE CARDIN");
+                      }}
+                    >
+                      PIERRE CARDIN
+                    </Checkbox>
+                    <br />
+                    <Checkbox
+                      value="PALMBEACH JEWELRY"
+                      checked={priceState11}
+                      onChange={() => {
+                        brandSort("PALMBEACH JEWELRY");
+                      }}
+                    >
+                      PALMBEACH JEWELRY
+                    </Checkbox>
+                    <br />
+                  </AccordionPanel>
+                </AccordionItem> */}
 
-// code: "BF-100821764-6QT6"
-// color: "White"
-// createdAt: "2022-05-07T04:46:29.284Z"
-// des: "This classic womens diamond ring features 15 round brilliant cut natural diamonds. All diamonds are set in solid white gold. .25ct total diamond weight. The band features an 8x2mm gap."
-// discounted_price: 537
-// id: 1
-// img1: "https://cdn.shopify.com/s/files/1/0248/3473/6191/products/mr1228wlarge2_7c8a1a8a-004f-44e5-9d6e-5c0cfc8d206d_large.jpg?v=1650985441"
-// img2: "https://cdn.shopify.com/s/files/1/0248/3473/6191/products/mr1228wlarge1_54fe8c85-8eed-422f-a5d6-6041dbbc0e54_large.jpg?v=1650985441"
-// img3: "https://cdn.shopify.com/s/files/1/0248/3473/6191/products/wr320010k-1_20_1_360x.jpg?v=1651571050"
-// img4: "https://cdn.shopify.com/s/files/1/0248/3473/6191/products/WR320010k_360x.jpg?v=1651571047"
-// owner: "POMPEII3"
-// price: 298.5
-// qty: 5
-// saveupto: 44
-// size: (4) [4, 5, 6, 7]
-// title: ".25Ct Curved Real Diamond Notched Wedding Ring Enhancer 10K White Gold 10 Karat"
-// type: "ring"
-// updatedAt: "2022-07-27T07:57:08.044Z"
-// _id: "6275f9a513cacb1cfa5d0890"
+                {/* -------------------------filter-price ---------------------*/}
+                {/* <AccordionItem>
+                  <h2>
+                    <AccordionButton>
+                      <Box flex="1" textAlign="left">
+                        PRICE
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4} textAlign="left">
+                    <Checkbox
+                      checked={priceState12}
+                      onChange={() => {
+                        priceSort("99");
+                      }}
+                      value="99"
+                    >
+                      Below $99
+                    </Checkbox>
+                    <br />
+                    <Checkbox
+                      checked={priceState13}
+                      onChange={() => {
+                        priceSort("999");
+                      }}
+                      value="999"
+                    >
+                      From $100 - $999
+                    </Checkbox>
+                    <br />
+                    <Checkbox
+                      checked={priceState14}
+                      onChange={() => {
+                        priceSort("1999");
+                      }}
+                      value="1999"
+                    >
+                      From $1000 - $1999
+                    </Checkbox>
+                    <br />
+                    <Checkbox
+                      checked={priceState15}
+                      onChange={() => {
+                        priceSort("2000");
+                      }}
+                      value="2000"
+                    >
+                      Above 2000
+                    </Checkbox>
+                    <br />
+                  </AccordionPanel>
+                </AccordionItem>
+              </Accordion> */}
+
+              {/* <SliderThumbWithTooltip /> */}
+            {/* </div>
+          </div> */}
+
+
+
+          {/* -------------------------product ---------------------*/}
+          <SimpleGrid columns={[1,2,3]}>
+           
+             {/* map the pro data */}
+
+              {pro &&
+                pro.map((el) => (
+
+                  <ProductCard
+                    key={el._id}
+                    id={el._id}
+                    img1={el.img1}
+                    img3={el.img3}
+                    title={el.title}
+                    owner={el.owner}
+                    price={el.price}
+                    discounted_price={el.discounted_price}
+                    saveupto={el.saveupto}
+                  />
+                ))}
+         
+          </SimpleGrid>
+
+        {/* </div> */}
+      </div>
+
+      {/* -------------------------pagination ---------------------*/}
+      {totalPosts > postPerPage && (
+        <Pagination      
+          currentPage={currentPage}
+          setCurrentPage ={setCurrentPage}
+          totalPosts={totalPosts}
+          postPerPage={postPerPage}
+        />
+      )}
+    </div>
+  );
+};
+
+export default Products;
+
+

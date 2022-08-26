@@ -11,11 +11,11 @@ const Home = () => {
   return (
     <>
       <Carousel />
-      <hr />
+   
       <DivComponents />
-      <hr />
+  
       <CategoryPage />
-      <hr />
+    
       <Carousel />
 
     </>
