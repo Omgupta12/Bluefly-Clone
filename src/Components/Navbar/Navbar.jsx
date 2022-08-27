@@ -15,6 +15,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Input,
 } from '@chakra-ui/react';
 import {
   HamburgerIcon,
@@ -28,9 +29,19 @@ import styles from "./Navbar.module.css"
 import { BsSearch } from 'react-icons/bs'
 import { AiOutlineUser } from 'react-icons/ai'
 import { BsBag } from 'react-icons/bs'
+import { Navigate, useNavigate } from 'react-router-dom';
+
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
+
+  const navigate =useNavigate()
+
+  const handleLogin=()=>{
+    navigate("/login")
+  }
+ 
+ 
 
   return (
 
@@ -46,9 +57,9 @@ export default function Navbar() {
           px={{ base: 1 }}
           mr={8}
           display={{ base: 'none', md: 'flex' }} >
-          <BsSearch size={22} /><Text>SEARCH</Text>
-          <AiOutlineUser size={22} />
-          <BsBag size={22} />
+        <Link><BsSearch size={22}>SEARCH</BsSearch></Link>
+        <Link onClick={handleLogin} ><AiOutlineUser size={22} /></Link> 
+         <Link  > <BsBag size={22} /></Link>
         </Stack>
       </Flex>
 
@@ -90,6 +101,7 @@ export default function Navbar() {
       </Box>
     
   );
+
 }
 
 const DesktopNav = () => {
@@ -97,22 +109,28 @@ const DesktopNav = () => {
   const linkHoverColor = useColorModeValue('gray.800', 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
+  // const navigate =useNavigate()
+
+  // function handleJewelry(){
+  //   navigate("/products")
+  // }
   return (
-    <Stack direction={'row'} spacing={10}>
+    <Stack direction={'row'} spacing={3}>
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label}>
+        <Box key={navItem.label} >
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
               <Link
                 p={4}
                 noOfLines={1}
-                href={navItem.href ?? '#'}
+                href={navItem.href ?? '/products'}
                 fontSize={'md'}
                 fontWeight={400}
                 color={linkColor}
                 _hover={{
                   textDecoration: 'underline',
                   color: linkHoverColor,
+                
                 }}>
                 {navItem.label}
               </Link>
@@ -157,21 +175,9 @@ const DesktopSubNav = ({ label, href, subLabel,heading1,heading2 }: NavItem) => 
       _hover={{ textDecoration:"none" }}>
         
        
-      <Stack direction={'row'} align={'center'} spacing={16} >
+      <Stack direction={'row'} justifyContent={'space-evenly'}  >
           <Text fontSize='sm'> {label} </Text>
-          <Text fontSize='sm'>{label}</Text>
-          {/* <Text fontSize={'sm'}>{subLabel}</Text> */}
-       
-        {/* <Flex
-          transition={'all .3s ease'}
-          transform={'translateX(-10px)'}
-          opacity={0}
-          _groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
-          justify={'flex-end'}
-          align={'center'}
-          flex={1}>
-          <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
-        </Flex> */}
+          <Text fontSize='sm'>{subLabel}</Text>
       </Stack>
     </Link>
         </>
@@ -253,6 +259,60 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> =
  [
+
+  {
+    label: 'JEWELRY & WATCHES',
+    children: 
+    [
+      { 
+        heading1:"JEWELRY",
+        heading2:"WATCHES",
+        label: 'Shop All',
+        subLabel: 'Shop All',
+        href: '#',
+      },
+      {
+        label: 'Rings',
+        subLabel: 'Armani',
+        href: '#',
+      },
+      {
+        label: 'Bracelets',
+        subLabel: 'Calvin Klein',
+        href: '#',
+      },
+      {
+        label: 'Earrings',
+        subLabel: 'Casio',
+        href: '#',
+      },
+      {
+        label: 'Necklaces',
+        subLabel: 'Diesel',
+        href: '#',
+      },
+      {
+        label: 'Brooches',
+        subLabel: 'Gucci',
+        href: '#',
+      },
+      {
+        label: 'Rings',
+        subLabel: 'Armani',
+        href: '#',
+      },
+      {
+        label: 'Bracelets',
+        subLabel: 'Calvin Klein',
+        href: '#',
+      },
+      {
+        label: 'Earrings',
+        subLabel: 'Casio',
+        href: '#',
+      },
+    ],
+  },
   {
     label: 'CLOTHING',
     children: 
@@ -260,33 +320,48 @@ const NAV_ITEMS: Array<NavItem> =
       { 
         heading1:"WOMEN'S CLOTHING",
         heading2:"MEN'S CLOTHING",
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Activewear',
+        subLabel: 'Activewear',
         href: '#',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Sports Coats',
+        subLabel: 'Pants',
         href: '#',
       },
       {
-        label: 'Explore Design Work1',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Dresses',
+        subLabel: 'Polo Shirts',
         href: '#',
       },
       {
-        label: 'New & Noteworthy1',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Shorts',
+        subLabel: 'Dress Shirts',
         href: '#',
       },
       {
-        label: 'Explore Design Work2',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Skirts',
+        subLabel: 'T-Shirts',
         href: '#',
       },
       {
-        label: 'New & Noteworthy2',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Jeans & Denim',
+        subLabel: 'Sweaters',
+        href: '#',
+      },
+      {
+        label: 'Sports Coats',
+        subLabel: 'Pants',
+        href: '#',
+      },
+      {
+        label: 'Dresses',
+        subLabel: 'Polo Shirts',
+        href: '#',
+      },
+      {
+        label: 'Shorts',
+        subLabel: 'Dress Shirts',
         href: '#',
       },
     ],
@@ -296,35 +371,50 @@ const NAV_ITEMS: Array<NavItem> =
     children: 
     [
       { 
-        heading1:"WOMEN'S CLOTHING",
-        heading2:"MEN'S CLOTHING",
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
+        heading1:"WOMEN'S SHOES",
+        heading2:"MEN'S SHOES",
+        label: 'Shop All',
+        subLabel: 'Shop All',
         href: '#',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Sneakers',
+        subLabel: 'Boots',
         href: '#',
       },
       {
-        label: 'Explore Design Work1',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Boots',
+        subLabel: 'Sneakers',
         href: '#',
       },
       {
-        label: 'New & Noteworthy1',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Slippers',
+        subLabel: ' Derby Shoes',
         href: '#',
       },
       {
-        label: 'Explore Design Work2',
-        subLabel: 'Trending Design to inspire you',
+        label: ' Derby Shoes',
+        subLabel: 'Loafers',
         href: '#',
       },
       {
-        label: 'New & Noteworthy2',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Flats',
+        subLabel: 'Slippers',
+        href: '#',
+      },
+      {
+        label: 'Sneakers',
+        subLabel: 'Boots',
+        href: '#',
+      },
+      {
+        label: 'Boots',
+        subLabel: 'Sneakers',
+        href: '#',
+      },
+      {
+        label: 'Slippers',
+        subLabel: ' Derby Shoes',
         href: '#',
       },
     ],
@@ -334,35 +424,50 @@ const NAV_ITEMS: Array<NavItem> =
     children: 
     [
       { 
-        heading1:"WOMEN'S CLOTHING",
-        heading2:"MEN'S CLOTHING",
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
+        heading1:"ALL HANDBAGS",
+        heading2:"TOP DESIGNERS",
+        label: 'Shop All',
+        subLabel: 'Shop All',
         href: '#',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Backpacks',
+        subLabel: 'Parada',
         href: '#',
       },
       {
-        label: 'Explore Design Work1',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Bucket Bags',
+        subLabel: 'Gucci',
         href: '#',
       },
       {
-        label: 'New & Noteworthy1',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Hobo Bags',
+        subLabel: 'Fendi',
         href: '#',
       },
       {
-        label: 'Explore Design Work2',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Satchels',
+        subLabel: 'Chloe',
         href: '#',
       },
       {
-        label: 'New & Noteworthy2',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Toe Bags',
+        subLabel: 'Celine',
+        href: '#',
+      },
+      {
+        label: 'Backpacks',
+        subLabel: 'Parada',
+        href: '#',
+      },
+      {
+        label: 'Bucket Bags',
+        subLabel: 'Gucci',
+        href: '#',
+      },
+      {
+        label: 'Hobo Bags',
+        subLabel: 'Fendi',
         href: '#',
       },
     ],
@@ -372,35 +477,50 @@ const NAV_ITEMS: Array<NavItem> =
     children: 
     [
       { 
-        heading1:"WOMEN'S CLOTHING",
-        heading2:"MEN'S CLOTHING",
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
+        heading1:"FEATURED DESIGNERS",
+        heading2:"By A-Z",
+        label: 'Balenciaga',
+        subLabel: 'A',
         href: '#',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Bottega',
+        subLabel: 'B',
         href: '#',
       },
       {
-        label: 'Explore Design Work1',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Burberry',
+        subLabel: 'C',
         href: '#',
       },
       {
-        label: 'New & Noteworthy1',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Celine',
+        subLabel: 'D',
         href: '#',
       },
       {
-        label: 'Explore Design Work2',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Dior',
+        subLabel: 'E',
         href: '#',
       },
       {
-        label: 'New & Noteworthy2',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Fendi',
+        subLabel: 'Z',
+        href: '#',
+      },
+      {
+        label: 'Bottega',
+        subLabel: 'B',
+        href: '#',
+      },
+      {
+        label: 'Burberry',
+        subLabel: 'C',
+        href: '#',
+      },
+      {
+        label: 'Celine',
+        subLabel: 'D',
         href: '#',
       },
     ],
@@ -410,185 +530,130 @@ const NAV_ITEMS: Array<NavItem> =
     children: 
     [
       { 
-        heading1:"WOMEN'S CLOTHING",
-        heading2:"MEN'S CLOTHING",
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
+        heading1:"WOMEN'S SUNGLASSES",
+        heading2:"MEN'S SUNGLASSES",
+        label: 'Shop All',
+        subLabel: 'Shop All',
         href: '#',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Burberry',
+        subLabel: 'Chloe',
         href: '#',
       },
       {
-        label: 'Explore Design Work1',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Chanel',
+        subLabel:  'Fendi',
         href: '#',
       },
       {
-        label: 'New & Noteworthy1',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Chloe',
+        subLabel: 'Burberry',
         href: '#',
       },
       {
-        label: 'Explore Design Work2',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Fendi',
+        subLabel: 'Gucci',
         href: '#',
       },
       {
-        label: 'New & Noteworthy2',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Gucci',
+        subLabel: 'Chanel',
+        href: '#',
+      },
+      {
+        label: 'Burberry',
+        subLabel: 'Chloe',
+        href: '#',
+      },
+      {
+        label: 'Chanel',
+        subLabel:  'Fendi',
+        href: '#',
+      },
+      {
+        label: 'Chloe',
+        subLabel: 'Burberry',
         href: '#',
       },
     ],
   },
-  {
-    label: 'JEWELRY & WATCHES',
-    children: 
-    [
-      { 
-        heading1:"WOMEN'S CLOTHING",
-        heading2:"MEN'S CLOTHING",
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
-      },
-      {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
-      },
-      {
-        label: 'Explore Design Work1',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
-      },
-      {
-        label: 'New & Noteworthy1',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
-      },
-      {
-        label: 'Explore Design Work2',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
-      },
-      {
-        label: 'New & Noteworthy2',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
-      },
-    ],
-  },
+ 
   {
     label: 'UNDER $ 50',
     children: 
     [
       { 
-        heading1:"WOMEN'S CLOTHING",
-        heading2:"MEN'S CLOTHING",
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
+        heading1:"BY PRICEPOINT",
+        heading2:"BY CATEGORY",
+        label: 'Under $25',
+        subLabel: 'Men',
         href: '#',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
+        label: '$25-$49.99',
+        subLabel: 'Women',
         href: '#',
       },
       {
-        label: 'Explore Design Work1',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Shop All Under $50',
+        subLabel: 'Shoes',
         href: '#',
       },
       {
         label: 'New & Noteworthy1',
-        subLabel: 'Up-and-coming Designers',
+        subLabel: 'Jewelry',
         href: '#',
       },
-      {
-        label: 'Explore Design Work2',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
-      },
-      {
-        label: 'New & Noteworthy2',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
-      },
+     
     ],
   },{
     label: 'BEAUTY',
     children: 
     [
       { 
-        heading1:"WOMEN'S CLOTHING",
-        heading2:"MEN'S CLOTHING",
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
+        heading1:"SKINCARE",
+        heading2:"HAIRCARE",
+        label: 'Shop All',
+        subLabel: 'Shop All',
         href: '#',
       },
-      {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
-      },
-      {
-        label: 'Explore Design Work1',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
-      },
-      {
-        label: 'New & Noteworthy1',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
-      },
-      {
-        label: 'Explore Design Work2',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
-      },
-      {
-        label: 'New & Noteworthy2',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
-      },
+      
     ],
   },{
     label: 'CLEARANCE',
     children: 
     [
       { 
-        heading1:"WOMEN'S CLOTHING",
-        heading2:"MEN'S CLOTHING",
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
+        heading1:"WOMEN'S ",
+        heading2:"MEN'S ",
+        label: 'Accessories',
+        subLabel: 'Accessories',
         href: '#',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Dresses',
+        subLabel: 'Pants',
         href: '#',
       },
       {
-        label: 'Explore Design Work1',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Jewelry',
+        subLabel: 'Polo Shirts',
         href: '#',
       },
       {
-        label: 'New & Noteworthy1',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Shoes',
+        subLabel: 'Sweaters',
         href: '#',
       },
       {
-        label: 'Explore Design Work2',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Sunglasses',
+        subLabel: 'Watches',
         href: '#',
       },
       {
-        label: 'New & Noteworthy2',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Tops',
+        subLabel: 'Shoes',
         href: '#',
       },
     ],
