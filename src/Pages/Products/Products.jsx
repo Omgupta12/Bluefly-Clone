@@ -53,7 +53,7 @@ const Products = () => {
   // let [priceState15, setPriceState15] = useState(false);
 
   const getData = () => {
-    axios.get("http://localhost:8080/products").then((res) => {
+    axios.get("https://bluefly-api.herokuapp.com/product").then((res) => {
       setpro(res.data);
       setResults(res.data.length);
     });
