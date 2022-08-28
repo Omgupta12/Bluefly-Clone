@@ -12,29 +12,34 @@ const Signup = () => {
       [name]: value,
     });
   };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(signUpData);
-    let res = await fetch("https://blueflyapp.herokuapp.com/Auth/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(signUpData),
-    });
-    let data = await res.json();
-    console.log(data);
-    if (data.response == "Account created succesfully") {
-      alert(data.response);
-      navigate("/login");
-    } else {
-      alert("Something Went wrong! Please try again");
-    }
-  };
+
+  const handleSubmit=()=>{
+    navigate('/login')
+  }
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log(signUpData);
+  //   let res = await fetch("https://blueflyapp.herokuapp.com/Auth/signup", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(signUpData),
+  //   });
+  //   let data = await res.json();
+  //   console.log(data);
+  //   if (data.response == "Account created succesfully") {
+  //     alert(data.response);
+  //     navigate("/login");
+  //   } else {
+  //     alert("Something Went wrong! Please try again");
+  //   }
+  // };
   return (
     <div className={styles.singnup_wrapper}>
       <div className={styles.heading}>
         <h3>Create Account</h3>
       </div>
       <div className={styles.form}>
+
         <form onSubmit={handleSubmit}>
           <div className={styles.item}>
             <label> First Name</label>

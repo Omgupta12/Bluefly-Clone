@@ -1,10 +1,14 @@
 import "./Products.css";
+
+import { Box, Container, SimpleGrid, Image, Center, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({
   id,
   img1,
+  img2,
   img3,
+  img4,
   title,
   owner,
   price,
@@ -12,34 +16,34 @@ const ProductCard = ({
   saveupto,
 }) => {
 
-  // const products = useSelector((store) => store.products.products);
+
   return (
-    <div className="card">
-      <Link
-        to={{
-          pathname: `/products/${id}`,
-        }}
-      >
-        <div key={id}>
-          <div className="x">
-            <a className="hover-switch">
-              <img src={img1} alt='' />
-              {/* <img src={e.img3} /> */}
-            </a>
-            <img src={img3} alt="" />
-          </div>
-          <div className="text">
-            <p className="owner">{owner}</p>
-            <h3 className="tit">{title}</h3>
-            <div className="flex">
-              <p className="price">${price}</p>
-              <p className="dis_price">${discounted_price}</p>
-              <p className="save">Save {saveupto}%</p>
-            </div>
-          </div>
-        </div>
+
+    <SimpleGrid columns={[1, null, 3]} display={'flex'} flexDirection={'row'} justifyContent={'space-between'} px={8} py={5} >
+
+      <Link to={{pathname: `/products/${id}`}} key={id} >
+
+          <Box  >
+            <Center>
+              <Image src={img1} alt={'img1'} boxSize={200} />
+            </Center>
+
+          </Box>
+
+          <Box className="text" >
+            <Text className="owner">{owner}</Text>
+            <Text className="tit">{title}</Text>
+            <Box className="flex">
+              <Text className="price">${price}</Text>
+              <Text className="dis_price">${discounted_price}</Text>
+              <Text className="save">Save {saveupto}%</Text>
+            </Box>
+          </Box>
+     
+
       </Link>
-    </div>
+    </SimpleGrid>
+
   );
 };
 

@@ -40,16 +40,20 @@ export default function Navbar() {
   const handleLogin=()=>{
     navigate("/login")
   }
+  const handleHome=()=>{
+    navigate("/")
+  }
  
  
 
   return (
 
  
-     <Box className={styles.Navbar} border='1px solid red'>
+     <Box className={styles.Navbar} >
      
       <Flex >
-        <Image  style={{ display: "block", marginLeft: "auto", marginRight: "auto",width:"200px",height:"30px",marginTop:"18px" }}
+        
+        <Image onClick={handleHome} style={{ display: "block", marginLeft: "auto", cursor:"pointer", marginRight: "auto",width:"200px",height:"30px",marginTop:"18px" }}
           src={"https://cdn.shopify.com/s/files/1/0248/3473/6191/files/BLUEFLY-LOGO-11-20.png?v=1574278243"}/>
 
         <Stack direction={'row'} spacing={4} 

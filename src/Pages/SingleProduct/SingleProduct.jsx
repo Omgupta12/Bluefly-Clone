@@ -5,7 +5,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
 import "./SingleProduct.css";
-// import { Cartpage } from "../Cartcount/Cartpage";
+import {Button, Text} from "@chakra-ui/react"
+
 import { useDisclosure } from "@chakra-ui/react";
 import { Cart } from "../../Routes/Cart";
 
@@ -31,7 +32,7 @@ const SingleProduct = () => {
       });
   };
   const { isOpen, onOpen, onClose } = useDisclosure();
-  if (pro.length === 0) return null;
+  if (pro.length === 0) return <Text as='i' fontSize={"5xl"} color={"grey"}>Please Wait ...</Text> 
   return (
     <div style={{ marginTop: "100px" }}>
       <div className="onepro">
@@ -114,9 +115,9 @@ const SingleProduct = () => {
             </div>
           </div>
 
-          <button onClick={() => displayside()} className="black">
+          <Button bg={'balck'} color={'white'} onClick={() => displayside()} className="black">
             ADD TO CART
-          </button>
+          </Button>
 
           <p>Usually ships in 1 to 2 business days</p>
           <br />

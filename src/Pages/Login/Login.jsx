@@ -7,9 +7,10 @@ import {Link} from "react-router-dom"
 const Login = () => {
   const navigate =useNavigate()
 
-  function handleCreate(){
-
+  const handleLogin=()=>{
+    navigate("/")
   }
+
   return (
     <Center>
      
@@ -26,7 +27,7 @@ const Login = () => {
             <Link to="" >Forget Password</Link>
             </Center>
           <Center>
-          <Button h={50} w={'sm'} bg={'black'} color={'white'}>SIGN IN</Button>
+          <Button onClick={handleLogin} h={50} w={'sm'} bg={'black'} color={'white'}>SIGN IN</Button>
           </Center>
           <Link to={"/signup"}>Create account</Link>
         </Stack>

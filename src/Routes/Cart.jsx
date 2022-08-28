@@ -141,9 +141,9 @@ export function Cart(isOpen, onOpen, onClose, setsidebar, sidebar) {
                                 </GridItem>
                             </Grid>
                             <Flex mt="4" mb="4">
-                                <Text>SUBTOTAL</Text>
+                                <Text color={'red'}>SUBTOTAL</Text>
                                 <Spacer />
-                                <Text>${items.qty * items.price}</Text>
+                                <Text color={'red'}>${items.qty * items.price}</Text>
                             </Flex>
                         </Box>
                         {/* ) : null; */}
