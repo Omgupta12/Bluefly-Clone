@@ -11,21 +11,25 @@ In this project, I used ReactJS , Chakra-UI, JavaScript, HTML, and CSS. My proje
 * It is fully functional and responsive
 * A customer can navigate to different pages using the navbar
 
+
 <img src="https://github.com/Omgupta12/Bluefly-Clone/blob/main/Images/Screenshot%20(6148).png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 <img src="https://github.com/Omgupta12/Bluefly-Clone/blob/main/Images/Screenshot%20(6149).png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
-* Access to popular topics is given the home page itself
+
+* Access to popular products is given the home page itself
 
 <img src="https://github.com/Omgupta12/Bluefly-Clone/blob/main/Images/Screenshot%20(6150).png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 <img src="https://github.com/Omgupta12/Bluefly-Clone/blob/main/Images/Screenshot%20(6152).png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
 
+
 * In the footer section, we have given an option for customers to view the site in different languages
 * PluralSight social media platform can be accessed through the buttons given in the footer section
 
+
 ### SIGN IN PAGE
-* Before accessing different video courses customers need to sign in to the site
-* Clicking the button in the navbar you willtaken to sign-in page
+* Before accessing products customers need to sign in to the site.
+* Clicking the button in the navbar you willtaken to sign-in page.
 <img src="https://github.com/Omgupta12/Bluefly-Clone/blob/main/Images/Screenshot%20(6163).png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
 
@@ -34,7 +38,7 @@ In this project, I used ReactJS , Chakra-UI, JavaScript, HTML, and CSS. My proje
 Source Code:- https://github.com/Omgupta12/Bluefly-Clone
 (GitHub Link)
 
-Source Code:- blue-omgupta12.vercel.app
+Source Code:- https://blue-omgupta12.vercel.app/
 (Vercel Link)
 
 
