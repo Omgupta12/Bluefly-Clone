@@ -1,72 +1,94 @@
-# Getting Started with Create React App
+# Bluefly-clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this project, I used ReactJS , Chakra-UI, JavaScript, HTML, and CSS. My project is to clone the Bluefly website, Bluefly is an e-commerce web application that allows you to shop online. It has a variety of categories, just visit the listing page, trending page and you will see all the items available, apply sorting as per your need and in just a few clicks from the website.
 
-## Available Scripts
 
-In the project directory, you can run:
+##  PROJECT DETAILS
 
-### `npm start`
+### HOME PAGE
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* The landing page of the website.
+* It is fully functional and responsive
+* A customer can navigate to different pages using the navbar
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img src="https://miro.medium.com/max/875/1*EYu0Fip3JdLc3plOB5owMA.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
+<img src="https://miro.medium.com/max/875/1*96zSoOTmnbkVpHsX6OrmOA.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
-### `npm test`
+* Access to popular topics is given the home page itself
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="https://miro.medium.com/max/875/1*xUg1IpooKrL7EcXjTZ_s0g.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
+<img src="https://miro.medium.com/max/875/1*EYu0Fip3JdLc3plOB5owMA.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* In the footer section, we have given an option for customers to view the site in different languages
+* PluralSight social media platform can be accessed through the buttons given in the footer section
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### SIGN IN PAGE
+* Before accessing different video courses customers need to sign in to the site
+* Clicking the button in the navbar you willtaken to sign-in page
+<img src="https://miro.medium.com/max/875/1*ZF5aTxXGdjfFN1qZH1e9Wg.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+* If a person is an existing customer just sign in with your email and password to access the course otherwise you have to create an account
+* Just click on create an account you will be redirected to pa and pricing page
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### PLAN & PRICING PAGE
+<img src="https://miro.medium.com/max/875/1*ZF5aTxXGdjfFN1qZH1e9Wg.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Cusromer can choose 2 types of plan
+ * Flow
+ * Skills
+ 
+ ### FLOW PAGE
+<img src="https://miro.medium.com/max/875/1*0j9f9-LEaHQ0C_Fc_Ul9FA.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Select a plan according to customers’ wish
 
-## Learn More
+### SKILLS PAGE
+* On this page different subscription plan options are given.
+#### 1. For Individual
+<img src="https://miro.medium.com/max/875/1*7oUEFvN6xPWpQHQLDrH8Cw.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* There were 2 more plans inside the skills like standard and premium
+* Customers can choose one of the plans according to their wish which may be monthly or yearly
 
-### Code Splitting
+#### 2. For Team
+<img src="https://miro.medium.com/max/875/1*qMdhzyJuSzxsV4ow1ftV8A.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* Customers can choose one of the plans according to their wish by clicking the button down of the amount displayed. Then customer will be redirected to the payment page
 
-### Analyzing the Bundle Size
+### PAYMENT PAGE
+* On this page, the amount the customer needed to pay is displayed on the right side
+* Left side section there is account detail section, payment and review and confirmation section
+<img src="https://miro.medium.com/max/875/1*jPKWRqIIoQTj3d1tBDKaxQ.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* After filling in the account details customer has to click on the continue button for going into the payment section
+* Details filled in the account section are used for signing in to the site
+* The customer has to fill the entire input section before clicking continue otherwise it will show an error
+<img src="https://miro.medium.com/max/875/1*I9USX_OOil1RuM5lZWS_Ww.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
-### Making a Progressive Web App
+* Payment section customer has to fill the card details for payment and click button for going into the review and confirmation section
+* The customer has to fill the entire input section before clicking continue otherwise it will show an error
+<img src="https://miro.medium.com/max/875/1*QInWyxNyGkolAHSgAGzDaw.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* After clicking on confirm pay button. The payment is confirmed and you will be redirected to home page
+<img src="https://miro.medium.com/max/875/1*xpSq3RhaEiTQXxxWRkHJ-Q.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
-### Advanced Configuration
+* Now customers can access different topics from the product page or from the popular topic section
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### PRODUCT PAGE
+<img src="https://miro.medium.com/max/875/1*Mt0fzgTAyBtt3QWXx0EytQ.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
+<img src="https://miro.medium.com/max/875/1*MBwZIakiAHpp52YmZSUhqA.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
+<img src="https://miro.medium.com/max/875/1*aX8XqeDI3Oe79mgcGqpOWw.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Source Code:- https://github.com/Omgupta12/Bluefly-Clone
+(GitHub Link)
 
-### `npm run build` fails to minify
+Source Code:- blue-omgupta12.vercel.app
+(Vercel Link)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-### Deployment Link: https://blue-omgupta12.vercel.app 
+
