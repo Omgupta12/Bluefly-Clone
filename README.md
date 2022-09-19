@@ -11,7 +11,7 @@ In this project, I used ReactJS , Chakra-UI, JavaScript, HTML, and CSS. My proje
 * It is fully functional and responsive
 * A customer can navigate to different pages using the navbar
 
-<img src="screenshots" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
+<img src="https://github.com/Omgupta12/Bluefly-Clone/blob/main/Screenshot%20(6148).png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 <img src="https://miro.medium.com/max/875/1*96zSoOTmnbkVpHsX6OrmOA.png" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
 
 * Access to popular topics is given the home page itself
