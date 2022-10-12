@@ -24,7 +24,7 @@ In this project, I used ReactJS , Chakra-UI, JavaScript, HTML, and CSS. My proje
 
 
 * In the footer section, we have given an option for customers to view the site in different languages
-* PluralSight social media platform can be accessed through the buttons given in the footer section
+
 
 
 ### SIGN IN PAGE
