@@ -1,0 +1,220 @@
+/* .Navbar {
+    margin: 10px;
+    font-family: futura, sans-serif;
+  }
+  .u {
+    display: flex;
+    justify-content: space-between;
+  }
+  .logo {
+    max-width: 100%;
+    max-height: 30px;
+    align-items: center;
+    padding-left: 30px;
+  }
+  .l {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    font-family: futura, sans-serif;
+    font-size: 0.9rem;
+    justify-content: space-between;
+  }
+  .footer {
+    margin-top: 30px;
+    border: 1px solid transparent;
+    background-color: #e6e6e6;
+  }
+  .f_u {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    height: 25 0px;
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
+    font-family: futura, sans-serif;
+  }
+  .f_l {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    font-size: 10px;
+    font-family: futura, sans-serif;
+  }
+  .first {
+    align-items: left;
+    font-size: 15px;
+    font-family: futura, sans-serif;
+  }
+  .second {
+    align-items: left;
+    font-size: 15px;
+    font-family: futura, sans-serif;
+    margin-top: 30px;
+  }
+  .inner {
+    display: flex;
+    gap: 30px;
+  }
+  .icons {
+
+    display: flex;
+    width: 40px;
+    border: 1px solid transparent;
+    justify-content: space-between;
+  }
+  .inp {
+    width: 68%;
+    height: 30px;
+    margin-bottom: 5px;
+  }
+  .btn {
+    width: 70%;
+    height: 30px;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    margin-bottom: 5px;
+    font-family: futura, sans-serif;
+  }
+  .logo1 {
+    width: 300px;
+    height: 100px;
+    text-align: center;
+  }
+  .head {
+    letter-spacing: 5px;
+  }
+  @media screen and (max-width: 376px) and (min-width: 0px) {
+    .upper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .first {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 376px) and (min-width: 660px) {
+    .upper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .first {
+      width: 100%;
+    }
+  }
+  .main {
+    width: 30%;
+    height: 400px;
+    margin: auto;
+    border: 1px solid transparent;
+    font-family: futura, sans-serif;
+  }
+  .login_username {
+    width: 100%;
+    height: 50px;
+    border: 1px solid grey;
+    font-family: futura, sans-serif;
+    border-radius: 5px;
+  }
+  .login_submit {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    font-family: futura, sans-serif;
+  }
+  .head1 {
+    color: black;
+    font-size: 30px;
+    font-family: futura, sans-serif;
+    margin: 20px;
+    text-align: center;
+  }
+  .label {
+    font-size: 15px;
+    font-weight: bold;
+  } */
+
+  .footerMain{
+  
+    background-color:
+    #e6e6e6 ;
+    padding: 10px;
+}
+.flexContainer{
+    display: flex;
+}
+
+.fotterContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.aboutUsDiv h3{
+text-align: left;
+font-size: 20px;
+margin-bottom: 20px;
+}
+.aboutUsDiv>div>div{
+    /* width:200px; */
+    /* border: 1px solid red; */
+    margin-right: 50px;
+}
+.aboutUsDiv>div>div>div{
+    width: 100%;
+    /* border: 1px solid green; */
+    text-align: left;
+    padding:5px;
+    font-family: Futura, sans-serif;;
+    font-size:15px;
+}
+.aboutUsDiv>div>div>div>a{
+
+    color: black;
+    text-decoration: none;
+        /* border: 1px solid green; */
+}
+
+.footerButton{
+    margin-top:20px;
+    width:80%;
+    height: 30px;
+    margin-left: -60px;
+    background-color: black;
+    color: white;
+    padding: 2px;
+}
+.footerInput{
+  margin-top: 10px;
+    width:80%;
+    height: 30px;
+    margin-left: -60px;
+}
+.signup>h3{
+  /* border: 1px solid green; */
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+img{
+    width:20%;
+    height: 100;
+    margin-top:50px;
+   
+}
+
+.pera{
+    margin-top: 20px;
+    font-size:13px;
+    margin-bottom: 20px;
+
+}
