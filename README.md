@@ -38,7 +38,7 @@ In this project, I used ReactJS , Chakra-UI, JavaScript, HTML, and CSS. My proje
 Source Code:- https://github.com/Omgupta12/Bluefly-Clone
 (GitHub Link)
 
-Source Code:- https://blue-omgupta12.vercel.app/
+Source Code:- https://bluefy-clone.vercel.app/
 (Vercel Link)
 
 
