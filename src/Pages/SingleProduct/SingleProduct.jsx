@@ -25,12 +25,13 @@ const SingleProduct = () => {
   };
 
   const getData =() => {
- axios.get(`https://bluefly-api.herokuapp.com/product/${id}`)
+ axios.get(`https://bluefly-server.onrender.com/product/${id}`)
       .then((res) => {
-        console.log(res.data);
-        setpro(res.data);
+        // console.log(res.data.data);
+        setpro(res.data.data);
       });
   };
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   if (pro.length === 0) return <Text as='i' fontSize={"5xl"} color={"grey"}>Please Wait ...</Text> 
   return (
@@ -102,6 +103,7 @@ const SingleProduct = () => {
             >
               {pro.size.map((w) => (
                 <p
+                key={w._id}
                   style={{
                     border: "1px solid gray",
                     width: "45px",

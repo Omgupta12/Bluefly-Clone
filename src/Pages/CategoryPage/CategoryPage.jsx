@@ -1,8 +1,10 @@
 import React from 'react'
 import { Box, Image, Container, Heading, SimpleGrid, Stack, Text } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom';
 // import image from "../../assets/categoryImage"
 
 const CategoryPage = () => {
+    const navigate =useNavigate()
 
     const data = [
         {
@@ -43,11 +45,11 @@ const CategoryPage = () => {
             image: 'https://cdn.shopify.com/s/files/1/0248/3473/6191/products/1cf51a05-da65-450c-a676-a342798b21df_360x.jpg?v=1607745936',
 
         },
-        {
-             id:8,
-            title: "WOMENS'S TOPS",
-            image: 'https://cdn.shopify.com/s/files/1/0248/3473/6191/products/1411349805_RLLZ_1_360x.jpg?v=1660461696',
-        },
+        // {
+        //      id:8,
+        //     title: "WOMENS'S TOPS",
+        //     image: 'https://cdn.shopify.com/s/files/1/0248/3473/6191/products/1411134678_RLLZ_1_0514cb83-0670-4dcc-9232-8eb86b13f64d_360x.jpg?v=1667306977',
+        // },
         {
              id:9,
             title: "WOMENS'S DENIM",
@@ -62,6 +64,9 @@ const CategoryPage = () => {
 
     ];
 
+    const handleProduct =()=>{
+navigate("/products")
+    }
 
     return (
         <>
@@ -75,6 +80,8 @@ const CategoryPage = () => {
                 {data.map((el) => (
                     <Container key={el.id}
                     align='center'
+                    cursor={"pointer"}
+                    onClick={handleProduct}
                         // border={"1px solid red"}
                         size="container.lg" height="300px" display={'flex'} flexDirection={'column'} justifyContent={'space-between'} >
                        

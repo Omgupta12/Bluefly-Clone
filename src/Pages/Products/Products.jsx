@@ -9,7 +9,10 @@ import {
   Checkbox,
   Select,
   Image,
-  Container,Text, Stack, Heading
+  Container,
+  Text,
+  Stack,
+  Heading,
 } from "@chakra-ui/react";
 
 import Pagination from "../Pagination/Pagination";
@@ -21,75 +24,67 @@ const Products = () => {
   const [pro, setpro] = useState([]);
   const [results, setResults] = useState(0);
   const [brandfilter, setBrandFilter] = useState("ALL");
-  
+
   const totalPosts = pro.length;
   const postPerPage = 6;
 
-
-  const getData = (page) => {
-    axios.get(`https://bluefly-api.herokuapp.com/product`).then((res) => {
-      setpro(res.data);
-      setResults(res.data.length);
-    });
+  const getData = async () => {
+    let res = await axios.get(`https://bluefly-server.onrender.com/product`);
+    // console.log("res", res.data.data);
+    setpro(res.data.data);
+    setResults(res.data.data.length);
   };
 
   useEffect(() => {
-    getData(currentPage);
-  },[currentPage]);
+    getData();
+  }, []);
 
   const handelSort = (by) => {
-
-    if(by==="a-z"){
-      const sorted=pro.sort((a,b)=>{
-        if(a.title > b.title){
-          return +1
+    if (by === "a-z") {
+      const sorted = pro.sort((a, b) => {
+        if (a.title > b.title) {
+          return +1;
+        } else if (a.title < b.title) {
+          return -1;
+        } else {
+          return 0;
         }
-        else if (a.title < b.title){
-          return -1
+      });
+      setpro([...sorted]);
+    } else if (by === "z-a") {
+      const sorted = pro.sort((a, b) => {
+        if (a.title > b.title) {
+          return -1;
+        } else if (a.title < b.title) {
+          return +1;
+        } else {
+          return 0;
         }
-        else{
-          return 0
-        }
-      })
-      setpro([...sorted])
-    }
-    else if (by==="z-a"){
-      const sorted=pro.sort((a,b)=>{
-        if(a.title > b.title){
-          return -1
-        }
-        else if (a.title < b.title){
-          return +1
-        }
-        else{
-          return 0
-        }
-      })
-      setpro([...sorted])
-    }
-
-   else  if (by == "lowprice") {
+      });
+      setpro([...sorted]);
+    } else if (by === "lowprice") {
       let sorted = pro.sort((a, b) => {
         return a.price - b.price;
       });
       let newData = [...sorted];
       setpro(newData);
-    } 
-    else if (by == "highprice") {
+    } else if (by === "highprice") {
       let sorted = pro.sort((a, b) => {
         return b.price - a.price;
       });
       let newData = [...sorted];
       setpro(newData);
-    } 
-    
-    else if (by == "all") {
+    } else if (by === "all") {
       getData();
     }
   };
 
-  if (pro.length === 0) return <Text as='i' fontSize={"5xl"} color={"grey"}>Please Wait ...</Text> 
-
+  if (pro.length === 0)
+    return (
+      <Text as="i" fontSize={"5xl"} color={"grey"}>
+        Please Wait ...
+      </Text>
+    );
 
   return (
     <div className="mainbody" style={{ marginTop: "160px" }}>
@@ -103,7 +98,7 @@ const Products = () => {
 
           {/* -------------------------sorting ---------------------*/}
           <div className="sorting">
-            <Select width="200px"  onChange={(e) => handelSort(e.target.value)}>
+            <Select width="200px" onChange={(e) => handelSort(e.target.value)}>
               <option value="all">BESTSELLING</option>
               <option value="a-z">TITLE A-Z</option>
               <option value="z-a">TITLE Z-A</option>
@@ -111,43 +106,36 @@ const Products = () => {
               <option value="highprice">PRICE HIGH To LOW</option>
             </Select>
           </div>
-
         </div>
-    
-       
-          {/* -------------------------product ---------------------*/}
-          <SimpleGrid columns={[1,2,3]}>
-           
-             {/* map the pro data */}
 
-              {pro &&
-                pro.map((el) => (
+        {/* -------------------------product ---------------------*/}
+        <SimpleGrid columns={[1, 2, 3]}>
+          {/* map the pro data */}
 
-                  <ProductCard
-                    key={el._id}
-                    id={el._id}
-                    img1={el.img1}
-                    img2={el.img2}
-                    img4={el.img4}
-                    img3={el.img3}
-                    title={el.title}
-                    owner={el.owner}
-                    price={el.price}
-                    discounted_price={el.discounted_price}
-                    saveupto={el.saveupto}
-                  />
-                ))}
-         
-          </SimpleGrid>
-
-      
+          {pro &&
+            pro.map((el) => (
+              <ProductCard
+                key={el._id}
+                id={el._id}
+                img1={el.img1}
+                img2={el.img2}
+                img4={el.img4}
+                img3={el.img3}
+                title={el.title}
+                owner={el.owner}
+                price={el.price}
+                discounted_price={el.discounted_price}
+                saveupto={el.saveupto}
+              />
+            ))}
+        </SimpleGrid>
       </div>
 
       {/* -------------------------pagination ---------------------*/}
       {totalPosts > postPerPage && (
-        <Pagination      
+        <Pagination
           currentPage={currentPage}
-          setCurrentPage ={setCurrentPage}
+          setCurrentPage={setCurrentPage}
           totalPosts={totalPosts}
           postPerPage={postPerPage}
         />
@@ -157,5 +145,3 @@ const Products = () => {
 };
 
 export default Products;
-
-
